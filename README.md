@@ -34,3 +34,18 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+I have created a color plate for the site
+
+Primary: #821d30 (Deep, rich color, great for primary actions like buttons, headers, or main elements.)
+
+Secondary: #ffc5d0 (Soft pink tone, perfect for secondary buttons, highlights, or UI elements.)
+
+Accent: #fb0909 (Vibrant red, best used for special highlights, interactive elements, or call-to-action sections.)
+
+Destructive: #fb0909 (Since it's a strong red, it’s perfect for delete buttons, warnings, or error messages.)
+
+Success: #f7d6d0 (A soft, warm color that can work for success messages, confirmations, or positive feedback.)
+
+Muted: #ffc5d0 (A lighter tone that can be used for subtle UI elements, backgrounds, or disabled states.)
