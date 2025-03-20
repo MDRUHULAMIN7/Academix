@@ -9,7 +9,7 @@ const Test = () => {
         mode ? toast.success("Test success") : toast.error("Test error");
     };
 
-    return <Button variant="outline" className="underline" onClick={() => handleClick(true)}>Test Toast</Button>;
+    return <Button variant="outline" className="underline" onClick={() => handleClick(true)}>Test Toast from sooner</Button>;
 };
 
 export default Test;
