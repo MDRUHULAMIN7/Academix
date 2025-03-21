@@ -43,7 +43,7 @@ export function SiteFooter({ className }) {
             >
               GitHub
             </a>
-            .
+            . Made by Ruhul Amin
           </p>
         </div>
       </div>

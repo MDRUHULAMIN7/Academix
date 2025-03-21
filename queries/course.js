@@ -4,22 +4,21 @@ import { User } from "@/model/user-model";
 import { Testimonial } from "@/model/testimonial-model";
 import { Module } from "@/model/module-model";
 
-export async function getCourses() {
-    const courses = await Course.find({})
-    .populate({
+import { replaceMongoIdInArray } from "@/lib/convertData";
+
+export async function getCourseList() {
+    const courses = await Course.find({}).select(["title", "subtitle", "thumbnail", "modules", "price", "category", "instructor"]).populate({
         path: "category",
         model: Category
-    })
-    .populate({
+    }).populate({
         path: "instructor",
         model: User
     }).populate({
         path: "testimonials",
         model: Testimonial
-    })
-    .populate({
+    }).populate({
         path: "modules",
         model: Module
-    });
-    return courses;
+    }).lean();
+    return replaceMongoIdInArray(courses);
 }
