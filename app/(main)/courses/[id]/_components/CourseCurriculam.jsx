@@ -12,7 +12,7 @@ import {
 
 const CourseCurriculam = ({course}) => {
     const totalDuration = course?.modules.reduce(function (acc, obj) { return acc + obj.duration; }, 0);
-    console.log(course)
+    // console.log(course,"course-ruhul")
     return (
         <>
             <div class="flex gap-x-5 items-center justify-center flex-wrap mt-4 mb-6 text-gray-600 text-sm">
@@ -24,7 +24,7 @@ const CourseCurriculam = ({course}) => {
                     <Clock10 className="w-4 h-4" />
                     {(totalDuration/60).toPrecision(2)} Hours
                 </span>
-            </div>
+            </div> 
 
             {/* contents */}
             <Accordion
