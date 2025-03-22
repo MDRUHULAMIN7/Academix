@@ -5,6 +5,8 @@ import { Testimonial } from "@/model/testimonial-model";
 import { Module } from "@/model/module-model";
 
 import { replaceMongoIdInArray, replaceMongoIdInObject } from "@/lib/convertData";
+import { getEnrollmentsForCourse } from "./enrollments";
+import { getTestimonialsForCourse } from "./testimonials";
 
 export async function getCourseList() {
     const courses = await Course.find({}).select(["title", "subtitle", "thumbnail", "modules", "price", "category", "instructor"]).populate({

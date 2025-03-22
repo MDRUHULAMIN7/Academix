@@ -23,6 +23,8 @@ const CourseInstructor = async ({course}) => {
                         src={instructor?.profilePicture}
                         alt={fullName}
                         className="w-full h-full object-cover rounded"
+                        height={20}
+                        width={20}
                     />
                 </div>
                 <div className="flex-1">
