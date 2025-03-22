@@ -18,8 +18,8 @@ const SingleCoursePage = async ({params: {id}}) => {
 
             <CourseDetails course={course} />
 
-            {course?.testimonials  && <Testimonials testimonials={replaceMongoIdInArray(course?.testimonials)} 
-             /> }
+            {course?.testimonials  && (<Testimonials testimonials={replaceMongoIdInArray(course?.testimonials)} 
+             />) }
 
             <RelatedCourses />
         </>
