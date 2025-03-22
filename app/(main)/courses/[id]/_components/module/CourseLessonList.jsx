@@ -5,6 +5,7 @@ import { getLesson } from "@/queries/lessons";
 
 const CourseLessonList = async ({lessonId}) => {
     const lesson = await getLesson(lessonId);
+    console.log(lesson)
     return (
         <button
             type="button"
