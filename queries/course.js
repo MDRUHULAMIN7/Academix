@@ -47,7 +47,7 @@ export async function getCourseDetails(id) {
 
     return replaceMongoIdInObject(course)
 }
-
+ 
 export async function getCourseDetailsByInstructor(instructorId) {
     const courses = await Course.find({instructor: instructorId}).lean();
 

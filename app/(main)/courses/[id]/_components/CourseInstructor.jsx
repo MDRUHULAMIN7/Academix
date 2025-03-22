@@ -20,11 +20,11 @@ const CourseInstructor = async ({course}) => {
             <div className="md:flex md:gap-x-5 mb-8">
                 <div className="h-[310px] w-[270px] max-w-full  flex-none rounded mb-5 md:mb-0">
                     <Image
-                        src={instructor?.profilePicture}
+                        src={'https://i.ibb.co.com/Kzpy8v0S/download.jpg'}
                         alt={fullName}
                         className="w-full h-full object-cover rounded"
-                        height={20}
-                        width={20}
+                        height={200}
+                        width={200}
                     />
                 </div>
                 <div className="flex-1">
