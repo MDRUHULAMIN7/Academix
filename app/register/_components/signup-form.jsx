@@ -45,7 +45,7 @@ export function SignupForm({role}) {
         })
       });
 
-      response.status === 201 && router.push("/login");
+      response.status === 201 && router.push("/");
 
     } catch(e){
       console.log(e.message);
