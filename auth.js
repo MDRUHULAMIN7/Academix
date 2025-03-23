@@ -54,5 +54,10 @@ export const {
                 },
             },
         }),
-    ]
+    ],
+    callbacks: {
+        async jwt({ token, user,account }) {
+            
+        }
+    },
 });
