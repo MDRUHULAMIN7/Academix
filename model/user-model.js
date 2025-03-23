@@ -18,7 +18,7 @@ const userSchema = new Schema({
         type: String,
     },
     phone: {
-        required: true,
+        required: false,
         type: String,
     },
     role: {
@@ -34,6 +34,10 @@ const userSchema = new Schema({
         type: Object,
     },
     profilePicture: {
+        required: false,
+        type: String,
+    },
+    designation: {
         required: false,
         type: String,
     },
