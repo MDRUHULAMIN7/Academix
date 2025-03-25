@@ -12,7 +12,7 @@ const Success = () => {
         </h1>
         <div className="flex items-center gap-3">
           <Button asChild size="sm">
-            <Link href="/courses">Browse Courses</Link>
+            <Link href="/courses">Browse  Courses</Link>
           </Button>
           <Button asChild variant="outline" size="sm">
             <Link href="/think-in-a-redux-way/introduction">Play Course</Link>
