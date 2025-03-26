@@ -14,7 +14,7 @@ const SingleCoursePage = async ({params: {id}}) => {
             <CourseDetailsIntro
                 title={course?.title}
                 subtitle={course?.subtitle}
-                thumbnail={course?.thumbnail} />
+                thumbnail={'https://res.cloudinary.com/dpomtzref/image/upload/v1742534698/eon2dutyiq6a7oemp00a.webp'} />
 
             <CourseDetails course={course} />
 

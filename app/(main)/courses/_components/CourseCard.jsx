@@ -14,7 +14,7 @@ const CourseCard = ({course}) => {
     <div className="group hover:shadow-sm transition overflow-hidden border rounded-lg p-3 h-full">
       <div className="relative w-full aspect-video rounded-md overflow-hidden">
         <Image
-          src={course?.thumbnail}
+          src={'https://res.cloudinary.com/dpomtzref/image/upload/v1742534698/eon2dutyiq6a7oemp00a.webp'}
           alt={course?.title}
           className="object-cover"
           fill
