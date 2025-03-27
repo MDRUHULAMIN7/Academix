@@ -29,7 +29,7 @@ const CourseCurriculam = ({course}) => {
                 <span className="flex items-center gap-1.5">
                     <Clock10 className="w-4 h-4" />
                     {(totalDuration/60).toPrecision(2)} Hours
-                    {totalDuration}
+                   
                 </span>
             </div> 
 
