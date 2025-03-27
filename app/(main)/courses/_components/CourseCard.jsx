@@ -8,6 +8,7 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { EnrollCourse } from "@/components/enroll-course";
 
 const CourseCard = ({ course }) => {
+  
   return (
     <div className="group hover:shadow-sm transition overflow-hidden border rounded-lg p-3 h-full">
       <Link key={course.id} href={`/courses/${course.id}`}>
@@ -44,7 +45,7 @@ const CourseCard = ({ course }) => {
         <p className="text-md md:text-sm font-medium text-slate-700">
           {formatPrice(course?.price)}
         </p>
-        <EnrollCourse asLink={true}></EnrollCourse>
+        <EnrollCourse asLink={true}   course={JSON.parse(JSON.stringify(course))}></EnrollCourse>
       </div>
     </div>
   );

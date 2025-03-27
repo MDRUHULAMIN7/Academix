@@ -16,7 +16,7 @@ const CourseCurriculam = ({course}) => {
         return acc + (obj.duration || 0); // Ensure duration is a number
     }, 0);
     
-    console.log(totalDuration, "course-ruhul-total-duration");
+    
    
     
     return (

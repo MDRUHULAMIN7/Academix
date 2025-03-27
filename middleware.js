@@ -11,12 +11,12 @@ export default auth((req) => {
 
   const isAuthenticated = !!req.auth;
 
-  console.log(isAuthenticated, nextUrl.pathname);
+  // console.log(isAuthenticated, nextUrl.pathname);
 
   const isPublicRoute = (PUBLIC_ROUTES.find(route => nextUrl.pathname.startsWith(route))
    || nextUrl.pathname === ROOT);
 
-  console.log({isPublicRoute});
+  // console.log({isPublicRoute});
 
   if (!isAuthenticated && !isPublicRoute)
     return Response.redirect(new URL(LOGIN, nextUrl));

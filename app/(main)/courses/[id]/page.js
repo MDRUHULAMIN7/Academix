@@ -12,16 +12,15 @@ const SingleCoursePage = async ({params: {id}}) => {
     return (
         <>
             <CourseDetailsIntro
-                title={course?.title}
-                subtitle={course?.subtitle}
-                thumbnail={'https://res.cloudinary.com/dpomtzref/image/upload/v1742534698/eon2dutyiq6a7oemp00a.webp'} />
+                course={course}
+                />
 
             <CourseDetails course={course} />
 
             {course?.testimonials  && (<Testimonials testimonials={replaceMongoIdInArray(course?.testimonials)} 
              />) }
 
-            <RelatedCourses />
+            {/* <RelatedCourses /> */}
         </>
     );
 };
