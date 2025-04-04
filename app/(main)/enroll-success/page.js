@@ -108,4 +108,4 @@ const Success = async ({ searchParams: { session_id, courseId } }) => {
         </div>
     );
 };
-export default Success;
+export default Success; 
