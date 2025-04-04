@@ -97,8 +97,8 @@ export const {
     ],
     callbacks: {
         async jwt({ token, user, account }) {
-          console.log(`JWT token: ${JSON.stringify(token)}`);
-          console.log(`JWT Account: ${JSON.stringify(account)}`);
+        //   console.log(`JWT token: ${JSON.stringify(token)}`);
+        //   console.log(`JWT Account: ${JSON.stringify(account)}`);
 
             if (account && user) {
                 return {
@@ -109,14 +109,14 @@ export const {
                 };
             }
 
-            console.log(`Token Will Expire at ${new Date(token.accessTokenExpires)})`);
+            // console.log(`Token Will Expire at ${new Date(token.accessTokenExpires)})`);
 
             if (Date.now() < token?.accessTokenExpires) {
                 console.log(`At ${new Date(Date.now())}, Using old access token`);
                 return token;
             }
 
-            console.log(`Token Expired at ${new Date(Date.now())}`)
+            // console.log(`Token Expired at ${new Date(Date.now())}`)
             return refreshAccessToken(token);
         },
 
@@ -126,7 +126,7 @@ export const {
           session.accessToken = token?.access_token;
           session.error = token?.error
 
-          console.log(`Returning Session ${JSON.stringify(session)}`)
+        //   console.log(`Returning Session ${JSON.stringify(session)}`)
           return session;
         },
     }
