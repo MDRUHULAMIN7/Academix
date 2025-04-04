@@ -5,7 +5,7 @@ import Link from "next/link";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import { stripe } from "@/lib/stripe";
-import { getCourseDetails } from "@/queries/courses";
+import { getCourseDetails } from "@/queries/course";
 import { getUserByEmail } from "@/queries/users";
 
 import { sendEmails } from "@/lib/emails";
