@@ -9,7 +9,7 @@ function EnrolledCourses() {
 			<div className="group hover:shadow-sm transition overflow-hidden border rounded-lg p-3 h-full">
 				<div className="relative w-full aspect-video rounded-md overflow-hidden">
 					<Image
-						src="/assets/images/courses/course_1.png"
+						src="https://res.cloudinary.com/dpomtzref/image/upload/v1742534698/eon2dutyiq6a7oemp00a.webp"
 						alt={"course"}
 						className="object-cover"
 						fill
@@ -85,7 +85,7 @@ function EnrolledCourses() {
 			<div className="group hover:shadow-sm transition overflow-hidden border rounded-lg p-3 h-full">
 				<div className="relative w-full aspect-video rounded-md overflow-hidden">
 					<Image
-						src="/assets/images/courses/course_1.png"
+						src="https://res.cloudinary.com/dpomtzref/image/upload/v1742534698/eon2dutyiq6a7oemp00a.webp"
 						alt={"course"}
 						className="object-cover"
 						fill
