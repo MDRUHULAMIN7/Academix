@@ -41,7 +41,7 @@ const Success = async ({ searchParams: { session_id, courseId } }) => {
     const paymentIntent = checkoutSession?.payment_intent;
     const paymentStatus = paymentIntent?.status;
 
-    console.log(paymentStatus);
+    // console.log(paymentStatus);
 
     // Cutomer info
     const customerName = `${loggedInUser?.firstName} ${loggedInUser?.lastName}`;
@@ -57,7 +57,7 @@ const Success = async ({ searchParams: { session_id, courseId } }) => {
           loggedInUser?.id,
           "stripe"
         );
-        console.log(enrolled);
+        // console.log(enrolled);
 
         // Send Emails to the instructor, student,and the person
         // who paid
@@ -80,7 +80,7 @@ const Success = async ({ searchParams: { session_id, courseId } }) => {
         ];
 
         const emailSentResponse = await sendEmails(emailsToSend);
-        console.log(emailSentResponse);
+        // console.log(emailSentResponse);
     }
 
     return (
