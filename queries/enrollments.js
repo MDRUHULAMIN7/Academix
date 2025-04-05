@@ -13,7 +13,7 @@ export async function getEnrollmentsForCourse(courseId) {
         course: courseId,
         student: userId,
         method: paymentMethod,
-       
+        
         enrollment_date: Date.now(),
         status: "not-started"
     }
