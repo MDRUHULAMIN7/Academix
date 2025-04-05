@@ -45,7 +45,7 @@ const CourseCard = ({ course }) => {
         <p className="text-md md:text-sm font-medium text-slate-700">
           {formatPrice(course?.price)}
         </p>
-        <EnrollCourse asLink={true}   course={JSON.parse(JSON.stringify(course))}></EnrollCourse>
+        <EnrollCourse asLink={true}   courseId={JSON.parse(JSON.stringify(course?.id))}></EnrollCourse>
       </div>
     </div>
   );
