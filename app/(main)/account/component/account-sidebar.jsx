@@ -13,6 +13,7 @@ const AccountSidebar = async () => {
     }
 
     const loggedInUser = await getUserByEmail(session?.user?.email);
+   
 
 
   return (

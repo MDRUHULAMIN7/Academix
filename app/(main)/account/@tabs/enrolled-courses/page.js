@@ -1,4 +1,4 @@
-import { CourseProgress } from "@/components/course-progress";
+//import { CourseProgress } from "@/components/course-progress";
 import { Badge } from "@/components/ui/badge";
 import { BookOpen } from "lucide-react";
 import Image from "next/image";
@@ -75,11 +75,11 @@ function EnrolledCourses() {
 						</p>
 					</div>
 
-					<CourseProgress
+					{/*<CourseProgress
 						size="sm"
 						value={80}
 						variant={110 === 100 ? "success" : ""}
-					/>
+	/>*/}
 				</div>
 			</div>
 			<div className="group hover:shadow-sm transition overflow-hidden border rounded-lg p-3 h-full">
@@ -151,11 +151,11 @@ function EnrolledCourses() {
 						</p>
 					</div>
 
-					<CourseProgress
+					{/*<CourseProgress
 						size="sm"
 						value={80}
 						variant={110 === 100 ? "success" : ""}
-					/>
+	/>*/}
 				</div>
 			</div>
 			<div className="group hover:shadow-sm transition overflow-hidden border rounded-lg p-3 h-full">
@@ -227,11 +227,11 @@ function EnrolledCourses() {
 						</p>
 					</div>
 
-					<CourseProgress
+					{/*<CourseProgress
 						size="sm"
 						value={80}
 						variant={110 === 100 ? "success" : ""}
-					/>
+	/>*/}
 				</div>
 			</div>
 			<div className="group hover:shadow-sm transition overflow-hidden border rounded-lg p-3 h-full">
@@ -303,11 +303,11 @@ function EnrolledCourses() {
 						</p>
 					</div>
 
-					<CourseProgress
+					{/*<CourseProgress
 						size="sm"
 						value={80}
 						variant={110 === 100 ? "success" : ""}
-					/>
+	/>*/}
 				</div>
 			</div>
 		</div>
