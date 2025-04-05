@@ -7,6 +7,7 @@ import { getUserByEmail } from "@/queries/users";
 
 async function Profile() {
 	const session = await auth();
+	
 	const loggedInUser = await getUserByEmail(session?.user?.email);
 
 	return (
