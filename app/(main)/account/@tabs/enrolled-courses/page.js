@@ -1,11 +1,11 @@
 //import { CourseProgress } from "@/components/course-progress";
 
-import { getEnrollmentsForUser } from "@/queries/enrollments";
+
 import { auth } from "@/auth";
+import { getEnrollmentsForUser } from "@/queries/enrollments";
+import { getUserByEmail } from "@/queries/users";
 
 import { redirect } from "next/navigation";
-
-import { getUserByEmail } from "@/queries/users";
 import EnrolledCourseCard from "../../component/erolled-coursecard";
 
 

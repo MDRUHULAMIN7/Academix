@@ -8,11 +8,10 @@ export async function getCategories() {
 
 export async function getCategoryDetails(categoryId) {
     try {
-        const category = await Category.findById(categoryId).populate({
-            path: "course",
-            model: Course,
-        }).lean();
-        return replaceMongoIdInObject(category);
+        console.log(categoryId,"categoryId")
+        const category = await Category.find().lean();
+        // return replaceMongoIdInObject(category);
+        console.log(category,"category  from catregory details")
     } catch (error) {
         throw new Error(error);
     }
