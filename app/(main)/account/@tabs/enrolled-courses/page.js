@@ -24,7 +24,7 @@ async function EnrolledCourses() {
     // console.log(enrollments,"now enrollments");
 
     return (
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-2">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-2">
             {enrollments && enrollments.length > 0 ? (
                 <>
                     {enrollments.map((enrollment) => (
