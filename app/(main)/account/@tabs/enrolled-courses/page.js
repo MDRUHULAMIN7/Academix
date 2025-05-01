@@ -21,10 +21,10 @@ async function EnrolledCourses() {
 
     const enrollments = await getEnrollmentsForUser(loggedInUser?.id);
 
-    console.log(enrollments);
+    // console.log(enrollments,"now enrollments");
 
     return (
-        <div className="grid sm:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-2">
             {enrollments && enrollments.length > 0 ? (
                 <>
                     {enrollments.map((enrollment) => (

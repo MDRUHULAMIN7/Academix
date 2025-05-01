@@ -10,7 +10,10 @@ export async function getEnrollmentsForCourse(courseId) {
 
 export async function getEnrollmentsForUser(userId) {
     try {
-        const enrollments = await Enrollment.find({ student: userId })
+        const enrollments = await Enrollment.find({ student: userId }).populate({
+          path: "course",
+          model: Course,
+        })
         .lean();
         return replaceMongoIdInArray(enrollments);
     } catch (err) {

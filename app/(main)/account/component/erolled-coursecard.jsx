@@ -4,128 +4,95 @@ import Image from "next/image";
 
 import { getCategoryDetails } from "@/queries/categories";
 
-import { getAReport } from "@/queries/reports";
-
-const EnrolledCourseCard = async ({enrollment}) => {
-// console.log(enrollment.course.toString(),"enrollment data of course");
-    const courseCategory = await getCategoryDetails(enrollment.course);
-// console.log(courseCategory,"course category data");
-    // const filter = {course: enrollment?.course?._id, student: enrollment?.student?._id};
-    // // console.log(filter,"course filter");
-
-    // const report = await getAReport(filter);
-
-    //console.log(report);
-
-    // Total Completed Modules
-    // const totalCompletedModules = report?.totalCompletedModeules?.length;
-
-    // Get all Quizzes and Assignments
-    // const quizzes = report?.quizAssessment?.assessments;
-    // const totalQuizzes = quizzes?.length;
-
-    // Find attempted quizzes
-    // const quizzesTaken = quizzes.filter(q => q.attempted);
-    // console.log(quizzesTaken);
-
-    // Find how many quizzes answered correct
-
-    // const totalCorrect = quizzesTaken.map(quiz => {
-    //     const item = quiz.options
-    //     return item.filter(o => {
-    //         return o.isCorrect === true && o.isSelected === true
-    //     })
-    //   }).filter(elem => elem.length > 0).flat();
-
-    //console.log({totalCorrect});
-
-    // const marksFromQuizzes = totalCorrect?.length * 5;
-
-    // const otherMarks = report?.quizAssessment?.otherMarks;
-
-    // const totalMarks = (marksFromQuizzes + otherMarks);
 
 
-    return (
-    //     <div className="group hover:shadow-sm transition overflow-hidden border rounded-lg p-3 h-full">
-    //         <div className="relative w-full aspect-video rounded-md overflow-hidden">
-    //             <Image
-    //                 src={`https://res.cloudinary.com/dpomtzref/image/upload/v1742534698/eon2dutyiq6a7oemp00a.webp`}
-    //                 alt={enrollment?.course?.title}
-    //                 className="object-cover"
-    //                 fill
-    //             />
-    //         </div>
-    //         <div className="flex flex-col pt-2">
-    //             <div className="text-lg md:text-base font-medium group-hover:text-sky-700 line-clamp-2">
-    //                 {enrollment?.course?.title}
-    //             </div>
-    //             <p className="text-xs text-muted-foreground">{courseCategory?.title}</p>
-    //             <div className="my-3 flex items-center gap-x-2 text-sm md:text-xs">
-    //                 <div className="flex items-center gap-x-1 text-slate-500">
-    //                     <div>
-    //                         <BookOpen className="w-4" />
-    //                     </div>
-    //                     <span>{enrollment?.course?.modules?.length} Chapters</span>
-    //                 </div>
-    //             </div>
-    //             <div className=" border-b pb-2 mb-2">
-    //                 <div className="flex items-center justify-between">
-    //                     <p className="text-md md:text-sm font-medium text-slate-700">
-    //                         Total Modules: {enrollment?.course?.modules?.length}
-    //                     </p>
-    //                     <p className="text-md md:text-sm font-medium text-slate-700">
-    //                         Completed Modules{" "}
-    //                         <Badge variant="success">{totalCompletedModules}</Badge>
-    //                     </p>
-    //                 </div>
-    //                 <div className="flex items-center justify-between mt-2">
-    //                     <p className="text-md md:text-sm font-medium text-slate-700">
-    //                         Total Quizzes: {totalQuizzes}
-    //                     </p>
+const EnrolledCourseCard = async ({ enrollment }) => {
+  
+const category = await getCategoryDetails(
+  enrollment?.course?.category?.id)
 
-    //                     <p className="text-md md:text-sm font-medium text-slate-700">
-    //                         Quiz taken <Badge variant="success">{quizzesTaken?.length}</Badge>
-    //                     </p>
-    //                 </div>
-    //                 <div className="flex items-center justify-between mt-2">
-    //                     <p className="text-md md:text-sm font-medium text-slate-700">
-    //                         Mark from Quizzes
-    //                     </p>
+console.log(category, "enrollment in card");
 
-    //                     <p className="text-md md:text-sm font-medium text-slate-700">
-    //                         {marksFromQuizzes}
-    //                     </p>
-    //                 </div>
-    //                 <div className="flex items-center justify-between mt-2">
-    //                     <p className="text-md md:text-sm font-medium text-slate-700">
-    //                         Others
-    //                     </p>
+  return (
+  
+    <div className="">
+      <div className="group hover:shadow-sm transition overflow-hidden border rounded-lg p-3 h-full">
+        <div className="relative w-full aspect-video rounded-md overflow-hidden">
+          <Image
+            src="https://res.cloudinary.com/dpomtzref/image/upload/v1742534698/eon2dutyiq6a7oemp00a.webp"
+            alt={"course"}
+            className="object-cover"
+            fill
+          />
+        </div>
+        <div className="flex flex-col pt-2">
+          <div className="text-lg md:text-base font-medium group-hover:text-sky-700 line-clamp-2">
+           {enrollment?.course?.title}
+          </div>
+          <p className="text-xs text-muted-foreground">{category?.title}</p>
+          <div className="my-3 flex items-center gap-x-2 text-sm md:text-xs">
+            <div className="flex items-center gap-x-1 text-slate-500">
+              <div>
+                <BookOpen className="w-4" />
+              </div>
+              <span>{enrollment?.course?.modules?.length} Chapters</span>
+            </div>
+          </div>
+          <div className=" border-b pb-2 mb-2">
+            <div className="flex items-center justify-between">
+              <p className="text-md md:text-sm font-medium text-slate-700">
+                Total Modules: {enrollment?.course?.modules?.length}
+              </p>
+              <p className="text-md md:text-sm font-medium text-slate-700">
+                Completed Modules <Badge variant="success">05</Badge>
+              </p>
+            </div>
+            <div className="flex items-center justify-between mt-2">
+              <p className="text-md md:text-sm font-medium text-slate-700">
+                Total Quizzes: 10
+              </p>
 
-    //                     <p className="text-md md:text-sm font-medium text-slate-700">
-    //                         {otherMarks}
-    //                     </p>
-    //                 </div>
-    //             </div>
-    //             <div className="flex items-center justify-between mb-4">
-    //                 <p className="text-md md:text-sm font-medium text-slate-700">
-    //                     Total Marks
-    //                 </p>
+              <p className="text-md md:text-sm font-medium text-slate-700">
+                Quiz taken <Badge variant="success">10</Badge>
+              </p>
+            </div>
+            <div className="flex items-center justify-between mt-2">
+              <p className="text-md md:text-sm font-medium text-slate-700">
+                Mark from Quizzes
+              </p>
 
-    //                 <p className="text-md md:text-sm font-medium text-slate-700">
-    //                     {totalMarks}
-    //                 </p>
-    //             </div>
+              <p className="text-md md:text-sm font-medium text-slate-700">
+                50
+              </p>
+            </div>
+            <div className="flex items-center justify-between mt-2">
+              <p className="text-md md:text-sm font-medium text-slate-700">
+                Others
+              </p>
 
-    //             {/*<CourseProgress
-	// 					size="sm"
-	// 					value={80}
-	// 					variant={110 === 100 ? "success" : ""}
-	// />*/}
-    //         </div>
-    //     </div>
-    <div>hello from here</div>
-    );
+              <p className="text-md md:text-sm font-medium text-slate-700">
+                50
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center justify-between mb-4">
+            <p className="text-md md:text-sm font-medium text-slate-700">
+              Total Marks
+            </p>
+
+            <p className="text-md md:text-sm font-medium text-slate-700">100</p>
+          </div>
+
+          {/*<CourseProgress
+                size="sm"
+                value={80}
+                variant={110 === 100 ? "success" : ""}
+/>*/}
+        </div>
+      </div>
+    
+    </div>
+  );
 };
 
 export default EnrolledCourseCard;
