@@ -48,7 +48,7 @@ const CourseDetailsIntro = async({course}) => {
                   buttonVariants({ variant: "outline", size: "lg" })
                 )}
               >
-                See Intro
+                See Intro 
               </Link>
             </div>
           </div>

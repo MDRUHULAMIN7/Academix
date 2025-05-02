@@ -3,6 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 import { signOut } from "next-auth/react";
+
 const menu = [
 	{ label: "Profile", href: "/account" },
 	{ label: "Enrolled Courses", href: "/account/enrolled-courses" },
