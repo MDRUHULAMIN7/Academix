@@ -13,7 +13,7 @@ const EnrolledCourseCard = async ({ enrollment }) => {
     course: enrollment?.course?._id,
     student: enrollment?.student?._id,
   };
-
+  
   const report = await getAReport(filter);
 
   // totalCopletedModules
@@ -22,6 +22,7 @@ const EnrolledCourseCard = async ({ enrollment }) => {
 
   // get all quizzess
   const quizzes = report?.quizAssessment?.assessments;
+
   const totalQuizzes = quizzes?.length || 0;
 
   // find attemted quizes
@@ -29,8 +30,7 @@ const EnrolledCourseCard = async ({ enrollment }) => {
 
   // Find how many quizzes answered correct
 
-  const totalCorrect = quizzesTaken
-    .map((quiz) => {
+  const totalCorrect = quizzesTaken?.map((quiz) => {
       const item = quiz.options;
       return item.filter((o) => {
         return o.isCorrect === true && o.isSelected === true;

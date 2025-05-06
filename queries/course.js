@@ -59,6 +59,30 @@ export async function getCourseDetailsByInstructor(instructorId) {
         })
     );
 
+    // node js updated thakle ai Object.groupby method ta use kora jabe
+    // const groupedByCourses = Object.groupBy(enrollments.flat(), ({ course }) => course);
+
+    // jehetu node js er version 16.0.0 er niche, tai amra nijer ekta groupBy function likhesi
+
+    function groupBy(array, keyGetter) {
+        return array.reduce((result, item) => {
+          const key = keyGetter(item);
+          if (!result[key]) {
+            result[key] = [];
+          }
+          result[key].push(item);
+          return result;
+        }, {});
+      }
+      
+      const groupeByCourses = groupBy(enrollments.flat(), ({ course }) => course);
+
+      const totalRevenue = courses.reduce( (acc, course)=>{
+        return (acc + groupeByCourses[course._id].length * course.price)
+      },0 )
+
+    console.log({totalRevenue},"groupByCourses");
+
     const totalEnrollments = enrollments.reduce(function (acc, obj) {
         return acc + obj.length;
     }, 0)
@@ -80,6 +104,7 @@ export async function getCourseDetailsByInstructor(instructorId) {
         "courses": courses.length,
         "enrollments": totalEnrollments,
         "reviews": totalTestimonials.length,
-        "ratings": avgRating.toPrecision(2)
+        "ratings": avgRating.toPrecision(2),
+        "revenue": totalRevenue,
     }
 }

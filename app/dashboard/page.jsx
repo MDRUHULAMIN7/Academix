@@ -1,8 +1,24 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { formatPrice } from "@/lib/formatPrice";
 formatPrice;
+import { getCourseDetailsByInstructor } from "@/queries/course";
+import { getUserByEmail } from "@/queries/users";
+import { auth } from "@/auth";
+import { redirect } from "next/navigation";
+
 
 const DashboardPage = async () => {
+  const session = await auth();
+  if (!session) {
+    redirect("/login");
+  }
+  const instructor = await getUserByEmail(session.user.email);
+  console.log(instructor)
+  if (instructor?.role !== "instructor") {
+    redirect("/login");
+  }
+  const courseStats = await getCourseDetailsByInstructor(instructor.id);
+  console.log(courseStats)
   return (
     <div className="p-6">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
