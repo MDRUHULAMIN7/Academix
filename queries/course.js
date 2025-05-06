@@ -75,13 +75,19 @@ export async function getCourseDetailsByInstructor(instructorId) {
         }, {});
       }
       
-      const groupeByCourses = groupBy(enrollments.flat(), ({ course }) => course);
+      const groupeByCourses = groupBy(enrollments.flat(), ({ course }) => course.toString());
 
-      const totalRevenue = courses.reduce( (acc, course)=>{
-        return (acc + groupeByCourses[course._id].length * course.price)
-      },0 )
+    //   const totalRevenue = courses.reduce( (acc, course)=>{
+    //     return (acc + groupeByCourses[course._id]?.length || 0 * course.price)
+    //   },0 )
 
-    console.log({totalRevenue},"groupByCourses");
+    const totalRevenue = courses.reduce((acc, course) => {
+        const enrolledCount = groupeByCourses[course._id.toString()]?.length || 0;
+        return acc + enrolledCount * course.price;
+      }, 0);
+      
+
+    console.log({ totalRevenue},"groupByCourses");
 
     const totalEnrollments = enrollments.reduce(function (acc, obj) {
         return acc + obj.length;

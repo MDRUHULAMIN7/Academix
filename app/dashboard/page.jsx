@@ -28,7 +28,7 @@ const DashboardPage = async () => {
             <CardTitle className="text-sm font-medium">Total Courses</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">15</div>
+            <div className="text-2xl font-bold">{courseStats?.courses}</div>
           </CardContent>
         </Card>
         {/* total enrollments */}
@@ -39,7 +39,7 @@ const DashboardPage = async () => {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">1000</div>
+            <div className="text-2xl font-bold">{courseStats?. enrollments}</div>
           </CardContent>
         </Card>
         {/* total revinue */}
@@ -48,7 +48,7 @@ const DashboardPage = async () => {
             <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{formatPrice(12000)}</div>
+            <div className="text-2xl font-bold">{formatPrice(courseStats?.revenue)}</div>
           </CardContent>
         </Card>
       </div>
