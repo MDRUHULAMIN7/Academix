@@ -19,7 +19,7 @@ export const GET = async (request) => {
         const user = await getUserByEmail(session?.user?.email);
 
         return new NextResponse(JSON.stringify(user), {
-            status: 200,
+            status: 200, 
         });
 
     } catch (err) {
