@@ -55,6 +55,12 @@ export const Navbar = () => {
                 }}
                 >Logout</Link>
             </DropdownMenuItem>
+            <DropdownMenuItem className="cursor-pointer">
+              <Link
+                href="/"
+               
+                >home</Link>
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
