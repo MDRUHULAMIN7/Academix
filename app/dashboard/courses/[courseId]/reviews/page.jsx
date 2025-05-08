@@ -1,6 +1,8 @@
+import { getCourseDetails } from "@/queries/course";
 import { columns } from "./_components/columns";
 import { DataTable } from "./_components/data-table";
 
+import { getInstructorDashboardData, REVIEW_DATA } from "@/lib/dashboard-helper";
 const reviews = [
   {
     id: 1,
@@ -15,10 +17,16 @@ const reviews = [
     rating: 5,
   },
 ];
-const ReviewsPage = async () => {
+const ReviewsPage = async ({params:{courseId}}) => {
+
+  const course = await getCourseDetails(courseId);
+
+  const reviewData = await getInstructorDashboardData(REVIEW_DATA);
+
+  console.log(reviewData,"reviewData");
   return (
     <div className="p-6">
-      <h2>Think in a Redux way reviews</h2>
+      <h2>{course.title}</h2>
       <DataTable columns={columns} data={reviews} />
     </div>
   );

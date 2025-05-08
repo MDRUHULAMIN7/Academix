@@ -49,7 +49,7 @@ export async function getCourseDetails(id) {
     return replaceMongoIdInObject(course)
 }
 
-export async function getCourseDetailsByInstructor(instructorId) {
+export async function getCourseDetailsByInstructor(instructorId,expand) {
     const courses = await Course.find({instructor: instructorId}).lean();
 
     const enrollments = await Promise.all(
@@ -58,6 +58,7 @@ export async function getCourseDetailsByInstructor(instructorId) {
           return enrollment;
         })
     );
+
 
     // node js updated thakle ai Object.groupby method ta use kora jabe
     // const groupedByCourses = Object.groupBy(enrollments.flat(), ({ course }) => course);
@@ -87,7 +88,7 @@ export async function getCourseDetailsByInstructor(instructorId) {
       }, 0);
       
 
-    console.log({ totalRevenue},"groupByCourses");
+   
 
     const totalEnrollments = enrollments.reduce(function (acc, obj) {
         return acc + obj.length;
@@ -105,7 +106,15 @@ export async function getCourseDetailsByInstructor(instructorId) {
         }, 0)) / totalTestimonials.length;
 
     //console.log("testimonials", totalTestimonials, avgRating);
+   
 
+    if(expand){
+        return{
+            "courses":courses?.flat(),
+            "enrollments":  enrollments?.flat(),
+            "reviews": totalTestimonials,
+        }
+    }
     return {
         "courses": courses.length,
         "enrollments": totalEnrollments,
