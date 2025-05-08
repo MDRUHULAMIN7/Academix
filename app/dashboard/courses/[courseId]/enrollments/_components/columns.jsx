@@ -8,6 +8,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { formatMyDate } from "@/lib/date";
 import { cn } from "@/lib/utils";
 import { GraduationCap } from "lucide-react";
 import { ArrowUpDown, MoreHorizontal, Pencil } from "lucide-react";
@@ -16,7 +17,7 @@ import Link from "next/link";
 export const columns = [
   {
     id: "name",
-    accessorKey: "student.name",
+    accessorKey: "studentName",
     header: ({ column }) => {
       return (
         <Button
@@ -29,7 +30,7 @@ export const columns = [
     },
   },
   {
-    accessorKey: "student.email",
+    accessorKey: "studentEmail",
     header: ({ column }) => {
       return (
         <Button
@@ -42,7 +43,7 @@ export const columns = [
     },
   },
   {
-    accessorKey: "student.quizMark",
+    accessorKey: "quizMark",
     header: ({ column }) => {
       return (
         <Button
@@ -55,7 +56,7 @@ export const columns = [
     },
   },
   {
-    accessorKey: "student.progress",
+    accessorKey: "progress",
     header: ({ column }) => {
       return (
         <Button
@@ -68,7 +69,7 @@ export const columns = [
     },
   },
   {
-    accessorKey: "date",
+    accessorKey: "enrollment_date",
     header: ({ column }) => {
       return (
         <Button
@@ -79,6 +80,10 @@ export const columns = [
         </Button>
       );
     },
+    cell:({row})=>{
+      const enrollmentDate = row.getValue("enrollment_date");
+      return formatMyDate(enrollmentDate);
+    }
   },
   // {
   //   id: "actions",
