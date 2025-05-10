@@ -45,6 +45,7 @@ export const DescriptionForm = ({ initialData, courseId }) => {
 
     try {
       await updateCourse(courseId, values);
+      console.log(values)
       toast.success("Course updated");
       toggleEdit();
       router.refresh();

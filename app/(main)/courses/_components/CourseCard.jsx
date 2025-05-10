@@ -16,8 +16,7 @@ const CourseCard = ({ course }) => {
           <div className="relative w-full aspect-video rounded-md overflow-hidden">
             <Image
               src={
-                "https://res.cloudinary.com/dpomtzref/image/upload/v1742534698/eon2dutyiq6a7oemp00a.webp"
-              }
+                course?.thumbnail  }
               alt={course?.title}
               className="object-cover"
               fill
