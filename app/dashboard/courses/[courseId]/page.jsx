@@ -14,10 +14,21 @@ import { CourseActions } from "./_components/course-action";
 import AlertBanner from "@/components/alert-banner";
 import { QuizSetForm } from "./_components/quiz-set-form";
 import { getCourseDetails } from "@/queries/course";
-
+import { getCategories } from "@/queries/categories";
 
 const EditCourse = async({params:{courseId}}) => {
   const course = await getCourseDetails(courseId);
+  const categories = await getCategories();
+  // console.log(categories)
+  const mapedCategories = categories.map((category) => {
+    return {
+      label: category.title,
+      value: category.title,
+      id: category.id,
+    };
+
+  })
+  
   return (
     <>
       <AlertBanner
@@ -40,9 +51,9 @@ const EditCourse = async({params:{courseId}}) => {
               }}
               courseId={courseId}
             />
-            <DescriptionForm initialData={{}} courseId={courseId} />
+            <DescriptionForm initialData={{description : course?.description}} courseId={courseId} />
             <ImageForm initialData={{}} courseId={courseId} />
-            <CategoryForm initialData={{}} courseId={courseId} />
+            <CategoryForm initialData={{value:course?.category?.title}} courseId={courseId} options={mapedCategories } />
 
             <QuizSetForm initialData={{}} courseId={courseId} />
           </div>
@@ -60,7 +71,7 @@ const EditCourse = async({params:{courseId}}) => {
                 <IconBadge icon={CircleDollarSign} />
                 <h2 className="text-xl">Sell you course</h2>
               </div>
-              <PriceForm initialData={{}} courseId={1} />
+              <PriceForm initialData={{price:course?.price}} courseId={courseId} />
             </div>
           </div>
         </div>
