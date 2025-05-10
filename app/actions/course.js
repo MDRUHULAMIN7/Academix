@@ -1,6 +1,7 @@
 "use server";
 
 import { getLoggedInUser } from "@/lib/loggedin-user";
+import { Course } from "@/model/course-model";
 import { create } from "@/queries/course";
 
 export async function createCourse(data) {
@@ -15,4 +16,12 @@ export async function createCourse(data) {
         throw new Error(e);
     }
 
+}
+
+export async function updateCourse(courseId, dataToUpdate) {
+    try {
+       await Course.findByIdAndUpdate(courseId,dataToUpdate);
+    } catch (e) {
+        throw new Error(e);
+    }
 }
