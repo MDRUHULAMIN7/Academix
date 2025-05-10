@@ -6,14 +6,14 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { ImageIcon, Pencil, PlusCircle } from "lucide-react";
 import { updateCourse } from "@/app/actions/course";
-
+import { useRouter } from "next/navigation";
 const IMGBB_API_KEY = "d53f3570374958485f29630fbf77e0b9"; // Replace with your actual API key
 
 export const ImageForm = ({ initialData, courseId }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [previewUrl, setPreviewUrl] = useState(initialData?.thumbnail || "");
   const [isUploading, setIsUploading] = useState(false);
-
+   const router = useRouter();
   const toggleEdit = () => setIsEditing((prev) => !prev);
 
   const handleFileChange = async (e) => {
@@ -42,8 +42,10 @@ export const ImageForm = ({ initialData, courseId }) => {
         if (imageUrl) {
           setPreviewUrl(imageUrl);
         const thumbnail = { thumbnail: imageUrl };
-          await updateCourse(courseId,thumbnail )
+          await updateCourse(courseId,thumbnail );
+          toggleEdit();
           toast.success("Image uploaded successfully!");
+          router.refresh();
         } else {
           toast.error("Upload failed.");
         }
