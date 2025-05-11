@@ -60,7 +60,7 @@ export const ModuleTitleForm = ({ initialData, courseId, chapterId }) => {
           )}
         </Button>
       </div>
-      {!isEditing && <p className="text-sm mt-2">{"Reactive Accelerator"}</p>}
+      {!isEditing && <p className="text-sm mt-2">{initialData?.title}</p>}
       {isEditing && (
         <Form {...form}>
           <form
