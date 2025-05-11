@@ -1,4 +1,5 @@
 import { replaceMongoIdInObject } from "@/lib/convertData";
+import { Lesson } from "@/model/lessons.model";
 import { Module } from "@/model/module-model";
 
 
@@ -17,7 +18,10 @@ export async  function create(moduleData){
 
 export async function getModule(moduleId){
     try{
-        const moduleData = await Module.findById(moduleId).lean();
+        const moduleData = await Module.findById(moduleId).populate({
+            path:"lessonIds",
+            model:Lesson
+        }).lean();
         return replaceMongoIdInObject(moduleData);
     }catch(e){
         throw new Error(e);

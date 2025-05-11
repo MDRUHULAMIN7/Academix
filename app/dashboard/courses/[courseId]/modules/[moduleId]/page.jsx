@@ -12,14 +12,18 @@ import { ModuleTitleForm } from "./_components/module-title-form";
 import { LessonForm } from "./_components/lesson-form";
 import { CourseActions } from "../../_components/course-action";
 import { getModule } from "@/queries/modules";
+import { replaceMongoIdInArray } from "@/lib/convertData";
 
 const Module = async ({ params:{courseId,moduleId} }) => {
   // eslint-disable-next-line @next/next/no-assign-module-variable
   const module = await getModule(moduleId);
 
-  console.log(module)
+  // console.log(module)
 
 
+ const lessons = replaceMongoIdInArray(module.lessonIds).sort((a, b ) => a.order - b.order);
+
+  console.log(lessons);
   return (
     <>
       <AlertBanner
