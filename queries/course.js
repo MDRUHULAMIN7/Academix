@@ -105,6 +105,7 @@ export async function getCourseDetailsByInstructor(instructorId, expand) {
   //   },0 )
 
   const totalRevenue = publishedCourses.reduce((acc, course) => {
+
     const enrolledCount = groupeByCourses[course._id.toString()]?.length || 0;
     return acc + enrolledCount * course.price;
   }, 0);
