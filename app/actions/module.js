@@ -2,6 +2,7 @@
 
 import { create } from "@/queries/modules"
 import { Course } from "@/model/course-model";
+import { Module } from "@/model/module-model";
 
 export async function createModule(data) {
 
@@ -28,4 +29,19 @@ export async function createModule(data) {
     }
 
 
+}
+
+
+export async function reOrderModules(data){
+
+    try{
+     console.log(data,"data")
+     await Promise.all(
+        data?.map(async(element)=>{
+            await Module.findByIdAndUpdate(element?.id,{order:element?.position})
+        })
+    )
+    }catch(e){
+        throw new Error(e);
+    }
 }
