@@ -1,5 +1,6 @@
 "use server";
 
+import { Lesson } from "@/model/lessons.model";
 import { Module } from "@/model/module-model";
 import { create } from "@/queries/lessons";
 
@@ -27,5 +28,22 @@ export async function createLesson(data) {
 
     }catch (error) {
         throw new Error(error);
+    }
+}
+
+export async function reOrderLesson(data){
+
+    try{
+
+        await Promise.all(data.map(async (element)=>{
+
+            await Lesson.findByIdAndUpdate(element.id, {
+                order: element.position
+            });
+        }))
+
+    }
+    catch(e){
+        throw new Error(e);
     }
 }
