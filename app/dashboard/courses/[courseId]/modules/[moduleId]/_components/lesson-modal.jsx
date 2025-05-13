@@ -17,7 +17,7 @@ import { LessonDescriptionForm } from "./lesson-description-form";
 import { LessonAccessForm } from "./lesson-access-form";
 import { VideoUrlForm } from "./video-url-form";
 import { CourseActions } from "../../../_components/course-action";
-export const LessonModal = ({ open, setOpen,courseId }) => {
+export const LessonModal = ({ open, setOpen,courseId,lesson }) => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       {/* <DialogTrigger>Open</DialogTrigger> */}
@@ -50,7 +50,7 @@ export const LessonModal = ({ open, setOpen,courseId }) => {
                   <h2 className="text-xl">Customize Your chapter</h2>
                 </div>
                 <LessonTitleForm
-                  initialData={{}}
+                  initialData={{title:lesson?.title}}
                   courseId={"1"}
                   lessonId={"1"}
                 />

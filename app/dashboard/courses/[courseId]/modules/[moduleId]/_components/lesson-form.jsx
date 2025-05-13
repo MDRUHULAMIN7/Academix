@@ -43,6 +43,7 @@ export const LessonForm = ({ initialData, moduleId,courseId }) => {
   const router = useRouter();
   const [isCreating, setIsCreating] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
+  const [lessonToEdit, setLessonToEdit] = useState(null);
 
   const toggleCreating = () => setIsCreating((current) => !current);
   const toggleEditing = () => setIsEditing((current) => !current);
@@ -99,6 +100,8 @@ export const LessonForm = ({ initialData, moduleId,courseId }) => {
 
   const onEdit = (id) => {
     setIsEditing(true);
+    const foundLesson = lessons.find((lesson) => lesson.id === id);
+    setLessonToEdit(foundLesson);
   };
 
   return (
@@ -170,7 +173,7 @@ export const LessonForm = ({ initialData, moduleId,courseId }) => {
           Drag & Drop to reorder the lessons
         </p>
       )}
-      <LessonModal courseId={courseId} open={isEditing} setOpen={setIsEditing} />
+      <LessonModal courseId={courseId} open={isEditing} setOpen={setIsEditing} lesson={lessonToEdit} />
     </div>
   );
 };
