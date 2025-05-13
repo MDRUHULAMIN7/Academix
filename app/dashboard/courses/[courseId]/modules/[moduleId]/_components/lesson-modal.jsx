@@ -51,13 +51,13 @@ export const LessonModal = ({ open, setOpen,courseId,lesson }) => {
                 </div>
                 <LessonTitleForm
                   initialData={{title:lesson?.title}}
-                  courseId={"1"}
-                  lessonId={"1"}
+                  courseId={courseId}
+                  lessonId={lesson?.id}
                 />
                 <LessonDescriptionForm
-                  initialData={{}}
-                  courseId={"1"}
-                  lessonId={"1"}
+                  initialData={{description : lesson?.description}}
+                  courseId={courseId}
+                  lessonId={lesson?.id}
                 />
               </div>
               <div>
