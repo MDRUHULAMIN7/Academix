@@ -60,7 +60,7 @@ const Module = async ({ params:{courseId,moduleId} }) => {
                 <IconBadge icon={BookOpenCheck} />
                 <h2 className="text-xl">Module Lessons</h2>
               </div>
-              <LessonForm moduleId={moduleId}  initialData={lessons}/>
+              <LessonForm moduleId={moduleId}  initialData={lessons} courseId={courseId} />
             </div>
           </div>
           <div>
